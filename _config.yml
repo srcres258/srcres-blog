@@ -8,7 +8,7 @@ subtitle: ''
 description: '123'
 keywords:
 author: src_resources
-language: zh-cn
+language: default
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -96,24 +96,28 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: quark
+theme: archer
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
 
-# Search
-search:
-  path: search.xml
-
-# RSS
-feed:
-    type: atom
-    path: atom.xml
-    limit: 20
-    hub:
-    content: true
-    content_limit: 140
-    content_limit_delim: ' '
-    order_by: -date
+jsonContent:
+  meta: true
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: true
+    excerpt: false
+    categories: true
+    tags: true
