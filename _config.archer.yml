@@ -4,16 +4,16 @@ avatar: /assets/avatar.jpg
 # author name
 author: src_resources
 # signature
-signature: 既往不咎
+signature: 是非进退难断，不断亦难；愿生有去处，苍有归途。
 # SNS (you can custom the order)
 social:
   email: src.res.211@gmail.com
   github: //github.com/srcres258
   # wechat should be a path of qr-code image path
-  wechat: /assets/example_qr.png
+  wechat: /assets/weixin_qrcode.jpg
   # qq should be a path of qr-code image path
-  qq: 
-  telegram: 
+  qq: /assets/qq_qrcode.jpg
+  telegram: https://t.me/srcres258
   weibo: 
   zhihu: 
   douban: 
@@ -24,7 +24,7 @@ social:
   segmentFault: 
   juejin: 
   v2ex: 
-  bilibili: 
+  bilibili: https://space.bilibili.com/79461110
   linkedin: 
   steam: 
   others: 
@@ -71,7 +71,7 @@ SEO_keywords:
 # main title shown in header image
 main_title: src_resources's Blog.
 # subtitle
-subtitle: it's better to burn out than to fade away
+subtitle: 关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。
 # site haeder image
 site_header_image: '/intro/index-bg.jpg'
 # post haeder image
