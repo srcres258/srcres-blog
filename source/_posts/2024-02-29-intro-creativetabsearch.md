@@ -7,6 +7,8 @@ categories: 模组简介
 
 # 创造物品栏检索 CreativeTabSearch
 
+现已支持**Fabric**，但需安装前置模组[**Fabric API**](https://www.mcmod.cn/class/3124.html)。
+
 ## 概述
 在创造模式物品栏上方添加搜索框用以快速筛选某一创造物品标签页。
 
