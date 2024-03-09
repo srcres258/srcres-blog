@@ -14,7 +14,7 @@ categories: 模组简介
 名称 | 链接
 :---: | :---
 GitHub | https://github.com/srcres258/CreativePageJump/
-MC百科 | 即将发布
+MC百科 | https://www.mcmod.cn/class/14009.html
 CurseForge | https://www.curseforge.com/minecraft/mc-mods/creativepagejump
 Modrinth | https://modrinth.com/mod/creativepagejump
 
