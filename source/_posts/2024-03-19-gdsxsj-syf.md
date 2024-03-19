@@ -86,7 +86,7 @@ $$\int\sqrt{x^2+a^2}\mathrm{d}x = \frac{x\sqrt{x^2+a^2}}{2}+\frac{a^2}{2}\mathrm
 
 # 方法总结：不定积分的双元换元法
 
-一般地，我们将解不定积分的双元换元法分为两种类型：
+一般地，我们将解不定积分的双元换元法分为两种类型（其中$C$为常实数）：
 
 - 类型1. 实圆双元：$x^2+y^2=C \Leftrightarrow x\mathrm{d}x=-y\mathrm{d}y$.
 - 类型2. 虚圆双元：$x^2-y^2=C \Leftrightarrow x\mathrm{d}x=y\mathrm{d}y$.
@@ -225,3 +225,137 @@ $$= \frac{1}{2}xy+\frac{1}{2}\int\frac{x^2+y^2}{y}\mathrm{d}x$$
 $$= \frac{xy}{2}+\frac{x^2+y^2}{2}\int\frac{\mathrm{d}x}{y}$$
 
 $$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.$$
+
+\(2\) \[证法一 - 分部积分法\] 由于
+
+$$\int y\mathrm{d}x = xy-\int x\mathrm{d}y$$
+
+$$= xy-\int x\cdot\frac{x\mathrm{d}x}{y}$$
+
+$$= xy-\int \frac{x^2\mathrm{d}x}{y}$$
+
+$$= xy-\int \frac{C+y^2}{y}\mathrm{d}x$$
+
+$$= xy-C\int \frac{\mathrm{d}x}{y}-\int y\mathrm{d}x，$$
+
+故移项得
+
+$$2\int y\mathrm{d}x = xy-C\int \frac{\mathrm{d}x}{y}，$$
+
+$$\int y\mathrm{d}x = \frac{xy}{2}-\frac{C}{2}\int \frac{\mathrm{d}x}{y}$$
+
+$$= \frac{xy}{2}-\frac{x^2-y^2}{2}\int \frac{\mathrm{d}x}{y}.$$
+
+\[证法二 - 二分裂项法\]
+
+$$\int y\mathrm{d}x = \frac{1}{2}\int y\mathrm{d}x-\frac{1}{2}\int(-y\mathrm{d}x)$$
+
+$$= \frac{1}{2}\int(x\mathrm{d}y+y\mathrm{d}x)-\frac{1}{2}\int(x\mathrm{d}y-y\mathrm{d}x)$$
+
+$$= \frac{1}{2}\int\mathrm{d}(xy)+\frac{1}{2}\int(y\mathrm{d}x-x\mathrm{d}y)$$
+
+$$= \frac{1}{2}xy+\frac{1}{2}\int(y\mathrm{d}x-x\cdot\frac{x\mathrm{d}y}{y})$$
+
+$$= \frac{1}{2}xy+\frac{1}{2}\int\frac{y^2-x^2}{y}\mathrm{d}x$$
+
+$$= \frac{xy}{2}+\frac{y^2-x^2}{2}\int\frac{\mathrm{d}x}{y}$$
+
+$$= \frac{xy}{2}-\frac{x^2-y^2}{2}\int\frac{\mathrm{d}x}{y}$$
+
+$$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.$$
+
+## 4. 双元点火公式
+
+注：本公式的用途类似于 Wallis 公式，用于降低被积函数的次数以最终化为双元第一公式或双元第三公式的形式并得出待求式的结果.
+
+对于实圆双元与虚圆双元，均有$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y$.
+
+证明. 先证实圆双元.
+
+$$\int x^n\mathrm{d}y = x^ny-\int y\mathrm{d}(x^n)$$
+
+$$= x^ny-n\int yx^{n-1}\mathrm{d}x$$
+
+$$= x^ny-n\int yx^{n-1}\cdot(-\frac{y\mathrm{d}y}{x})$$
+
+$$= x^ny+n\int y^2x^{n-2}\mathrm{d}y$$
+
+$$= x^ny+n\int (C-x^2)x^{n-2}\mathrm{d}y$$
+
+$$= x^ny+Cn\int x^{n-2}\mathrm{d}y-n\int x^n\mathrm{d}y，$$
+
+移项即得
+
+$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.$$
+
+再证虚圆双元.
+
+$$\int x^n\mathrm{d}y = x^ny-\int y\mathrm{d}(x^n)$$
+
+$$= x^ny-n\int yx^{n-1}\mathrm{d}x$$
+
+$$= x^ny-n\int yx^{n-1}\cdot\frac{y\mathrm{d}y}{x}$$
+
+$$= x^ny-n\int y^2x^{n-2}\mathrm{d}y$$
+
+$$= x^ny-n\int (x^2-C)x^{n-2}\mathrm{d}y$$
+
+$$= x^ny+Cn\int x^{n-2}\mathrm{d}y-n\int x^n\mathrm{d}y，$$
+
+移项即得
+
+$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.$$
+
+# 方法运用：运用双元换元法求解不定积分
+
+例2. 求 $\int\sqrt{\frac{x-a}{x-b}}\mathrm{d}x$，其中$a,b\in\mathbb{R}$为常数.
+
+解. 令$u = \sqrt{x-a}$，$v = \sqrt{x-b}$，易得$u^2-v^2=b-a=C$为常数（虚元双元），
+
+则
+
+$$\int\sqrt{\frac{x-a}{x-b}}\mathrm{d}x = \int\frac{u}{v}\mathrm{d}(u^2+a)$$
+
+$$= \int\frac{2u^2\mathrm{d}u}{v}$$
+
+$$= 2\int\frac{C+v^2}{v}\mathrm{d}u$$
+
+$$= 2C\int\frac{\mathrm{d}u}{v}+2\int v\mathrm{d}u，$$
+
+依次代入虚元双元的双元第二、第一公式可得
+
+$$\int\sqrt{\frac{x-a}{x-b}}\mathrm{d}x = 2C\int\frac{\mathrm{d}u}{v}+2(\frac{xy}{2}-\frac{C}{2}\int\frac{\mathrm{d}u}{v})$$
+
+$$= C\int \frac{\mathrm{d}u}{v}+uv$$
+
+$$= C\mathrm{ln}\left|u+v\right|+uv+C_0$$
+
+$$= (b-a)\mathrm{ln}\left|\sqrt{x-a}+\sqrt{x-b}\right|+\sqrt{(x-a)(x-b)}+C_0.$$
+
+例3. 求 $\int\sqrt{\frac{x-a}{b-x}}\mathrm{d}x$，其中$a,b\in\mathbb{R}$为常数.
+
+解. 令$u = \sqrt{x-a}$，$v = \sqrt{b-x}$，易得$u^2+v^2=b-a=C$为常数（实元双元），
+
+则
+
+$$\int\sqrt{\frac{x-a}{b-x}}\mathrm{d}x = \int\frac{u}{v}\mathrm{d}(u^2+a)$$
+
+$$= \int\frac{2u^2\mathrm{d}u}{v}$$
+
+$$= -2\int u(-\frac{u\mathrm{d}u}{v})$$
+
+$$= -2\int u\mathrm{d}v$$
+
+$$= -2(uv-\int v\mathrm{d}u)$$
+
+$$= 2\int v\mathrm{d}u-2uv，$$
+
+依次代入实元双元的双元第二、第一公式可得
+
+$$\int\sqrt{\frac{x-a}{b-x}}\mathrm{d}x = 2(\frac{uv}{2}+\frac{C}{2}\int\frac{\mathrm{d}u}{v})-2uv$$
+
+$$= C\int\frac{\mathrm{d}u}{v}-uv$$
+
+$$= C\arctan{\frac{u}{v}}-uv+C_0$$
+
+$$= (b-a)\arctan{\sqrt{\frac{x-a}{b-x}}}-\sqrt{(x-a)(b-x)}+C_0.$$
