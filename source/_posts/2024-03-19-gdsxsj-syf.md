@@ -48,7 +48,8 @@ $$= \frac{a^2}{2}\mathrm{sec}\theta\mathrm{tan}\theta+\frac{a^2}{2}\mathrm{ln}\l
 
 $$= \frac{a^2}{2}\cdot\frac{x}{a}\cdot\frac{\sqrt{x^2+a^2}}{a}+\frac{a^2}{2}\mathrm{ln}\left|\frac{x}{a}+\frac{\sqrt{x^2+a^2}}{a}\right|+C$$
 
-$$= \frac{x\sqrt{x^2+a^2}}{2}+\frac{a^2}{2}\mathrm{ln}(x+\sqrt{x^2+a^2})+C.$$
+$$
+= \frac{x\sqrt{x^2+a^2}}{2}+\frac{a^2}{2}\mathrm{ln}(x+\sqrt{x^2+a^2})+C.\tag{Done}$$
 
 （注意$-\frac{a^2}{2}\mathrm{ln}\left|a\right|$已并入常数项$C$中；由于$\sqrt{x^2+a^2}+x$恒为正，故去掉绝对值符号. ）
 
@@ -82,7 +83,7 @@ $$= \frac{xy}{2}+\frac{a^2}{2}\mathrm{ln}(x+y)+C.$$
 
 将$y = \sqrt{x^2+a^2}$代入得
 
-$$\int\sqrt{x^2+a^2}\mathrm{d}x = \frac{x\sqrt{x^2+a^2}}{2}+\frac{a^2}{2}\mathrm{ln}(x+\sqrt{x^2+a^2})+C.$$
+$$\int\sqrt{x^2+a^2}\mathrm{d}x = \frac{x\sqrt{x^2+a^2}}{2}+\frac{a^2}{2}\mathrm{ln}(x+\sqrt{x^2+a^2})+C.\tag{Done}$$
 
 # 方法总结：不定积分的双元换元法
 
@@ -122,7 +123,7 @@ $$\int\frac{\mathrm{d}x}{y} = \int\frac{y^2}{y^2+x^2}\cdot\mathrm{d}(\frac{x}{y}
 
 $$= \int\frac{1}{(\frac{x}{y})^2+1}\cdot\mathrm{d}(\frac{x}{y})$$
 
-$$= \mathrm{arctan}\frac{x}{y}+C_0.$$
+$$= \mathrm{arctan}\frac{x}{y}+C_0.\tag{Q.E.D.}$$
 
 \(2\) 因$y\mathrm{d}y=x\mathrm{d}x$，故$\frac{\mathrm{d}x}{y}=\frac{\mathrm{d}y}{x}$，由合比定理有$\frac{\mathrm{d}x}{y}=\frac{\mathrm{d}y}{x}=\frac{\mathrm{d}x+\mathrm{d}y}{x+y}=\frac{\mathrm{d}(x+y)}{x+y}=\mathrm{d}\mathrm{ln}\left|x+y\right|$.
 
@@ -130,7 +131,7 @@ $$= \mathrm{arctan}\frac{x}{y}+C_0.$$
 
 $$\int\frac{\mathrm{d}x}{y} = \int\mathrm{d}\mathrm{ln}\left|x+y\right|$$
 
-$$= \mathrm{ln}\left|x+y\right|+C_0.$$
+$$= \mathrm{ln}\left|x+y\right|+C_0.\tag{Q.E.D.}$$
 
 ## 2. 双元第三公式
 
@@ -149,7 +150,7 @@ $$= \int\frac{1}{x^2+y^2}\cdot\mathrm{d}(\frac{x}{y})$$
 
 $$= \frac{1}{x^2+y^2}\cdot\frac{x}{y}+C_0$$
 
-$$= \frac{x}{Cy}+C_0.$$
+$$= \frac{x}{Cy}+C_0.\tag{Q.E.D.}$$
 
 \(2\) 由于
 
@@ -179,7 +180,7 @@ $$= \int\frac{1}{y^2-x^2}\mathrm{d}(\frac{x}{y})$$
 
 $$= \frac{1}{y^2-x^2}\cdot\frac{x}{y}+C_0$$
 
-$$= -\frac{x}{Cy}+C_0.$$
+$$= -\frac{x}{Cy}+C_0.\tag{Q.E.D.}$$
 
 ## 3. 双元第二公式
 
@@ -208,7 +209,7 @@ $$2\int y\mathrm{d}x = xy+C\int \frac{\mathrm{d}x}{y}，$$
 
 $$\int y\mathrm{d}x = \frac{xy}{2}+\frac{C}{2}\int \frac{\mathrm{d}x}{y}$$
 
-$$= \frac{xy}{2}+\frac{x^2+y^2}{2}\int \frac{\mathrm{d}x}{y}.$$
+$$= \frac{xy}{2}+\frac{x^2+y^2}{2}\int \frac{\mathrm{d}x}{y}.\tag{Q.E.D.}$$
 
 \[证法二 - 二分裂项法\]
 
@@ -224,7 +225,7 @@ $$= \frac{1}{2}xy+\frac{1}{2}\int\frac{x^2+y^2}{y}\mathrm{d}x$$
 
 $$= \frac{xy}{2}+\frac{x^2+y^2}{2}\int\frac{\mathrm{d}x}{y}$$
 
-$$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.$$
+$$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.\tag{Q.E.D.}$$
 
 \(2\) \[证法一 - 分部积分法\] 由于
 
@@ -244,7 +245,7 @@ $$2\int y\mathrm{d}x = xy-C\int \frac{\mathrm{d}x}{y}，$$
 
 $$\int y\mathrm{d}x = \frac{xy}{2}-\frac{C}{2}\int \frac{\mathrm{d}x}{y}$$
 
-$$= \frac{xy}{2}-\frac{x^2-y^2}{2}\int \frac{\mathrm{d}x}{y}.$$
+$$= \frac{xy}{2}-\frac{x^2-y^2}{2}\int \frac{\mathrm{d}x}{y}.\tag{Q.E.D.}$$
 
 \[证法二 - 二分裂项法\]
 
@@ -262,7 +263,7 @@ $$= \frac{xy}{2}+\frac{y^2-x^2}{2}\int\frac{\mathrm{d}x}{y}$$
 
 $$= \frac{xy}{2}-\frac{x^2-y^2}{2}\int\frac{\mathrm{d}x}{y}$$
 
-$$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.$$
+$$= \frac{xy}{2}+\frac{C}{2}\int\frac{\mathrm{d}x}{y}.\tag{Q.E.D.}$$
 
 ## 4. 双元点火公式
 
@@ -286,7 +287,7 @@ $$= x^ny+Cn\int x^{n-2}\mathrm{d}y-n\int x^n\mathrm{d}y，$$
 
 移项即得
 
-$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.$$
+$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.\tag{Q.E.D.}$$
 
 再证虚圆双元.
 
@@ -304,7 +305,7 @@ $$= x^ny+Cn\int x^{n-2}\mathrm{d}y-n\int x^n\mathrm{d}y，$$
 
 移项即得
 
-$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.$$
+$$(1+n)\int x^n\mathrm{d}y = x^ny+Cn\int x^{n-2}\mathrm{d}y.\tag{Q.E.D.}$$
 
 # 方法运用：运用双元换元法求解不定积分
 
@@ -330,7 +331,7 @@ $$= C\int \frac{\mathrm{d}u}{v}+uv$$
 
 $$= C\mathrm{ln}\left|u+v\right|+uv+C_0$$
 
-$$= (b-a)\mathrm{ln}\left|\sqrt{x-a}+\sqrt{x-b}\right|+\sqrt{(x-a)(x-b)}+C_0.$$
+$$= (b-a)\mathrm{ln}\left|\sqrt{x-a}+\sqrt{x-b}\right|+\sqrt{(x-a)(x-b)}+C_0.\tag{Done}$$
 
 例3. 求 $\int\sqrt{\frac{x-a}{b-x}}\mathrm{d}x$，其中$a,b\in\mathbb{R}$为常数.
 
@@ -358,4 +359,4 @@ $$= C\int\frac{\mathrm{d}u}{v}-uv$$
 
 $$= C\arctan{\frac{u}{v}}-uv+C_0$$
 
-$$= (b-a)\arctan{\sqrt{\frac{x-a}{b-x}}}-\sqrt{(x-a)(b-x)}+C_0.$$
+$$= (b-a)\arctan{\sqrt{\frac{x-a}{b-x}}}-\sqrt{(x-a)(b-x)}+C_0.\tag{Done}$$
