@@ -289,3 +289,158 @@ Rust-created string, string from Java
 ```
 
 # 后续：添加更多不同功能的 native 方法并实现
+
+我们为 Java 程序主类 `App` 添加更多的静态 native 方法：
+
+```java
+    static int testInt;
+    static String testString;
+    static String testStringFromRust;
+
+    static native String hello(String input);
+    static native int helloInt(int input);
+    static native int helloFromTestIntField();
+    static native String helloFromTestStringField();
+    static native void modifyTestStringFromRust(String input);
+    static String callFromRust(String input) {
+        System.out.println("Method callFromRust was invoked!");
+        return "Java-side received: " + input;
+    }
+    static native String actCallFromRust(String input);
+    static native void delayInRust(long timeMillis);
+```
+
+并在 `main` 方法中予以调用：
+
+```java
+    public static void main(String[] args) {
+        loadRustLibrary();
+
+        String output = hello("string from Java");
+        System.out.println(output);
+
+        int outputInt = helloInt(114514);
+        System.out.println(outputInt);
+
+        testInt = 514;
+        System.out.println(helloFromTestIntField());
+
+        testString = "String static field from Java";
+        System.out.println(helloFromTestStringField());
+
+        modifyTestStringFromRust("string from Java #2");
+        System.out.println(testStringFromRust);
+
+        System.out.println("actCallFromRust result: " + actCallFromRust("string from Java #3"));
+
+        System.out.println("Delay in Rust for 2 seconds...");
+        delayInRust(2000);
+        System.out.println("Delay done.");
+    }
+```
+
+转到 Rust 代码中实现这些 native 方法：
+
+```rust
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_helloInt<'a>(
+    _: JNIEnv<'a>,
+    _: JClass<'a>,
+    input: jint
+) -> jint {
+    input + 1919810
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_helloFromTestIntField<'a>(
+    mut env: JNIEnv<'a>,
+    class: JClass<'a>
+) -> jint {
+    let testInt = env.get_static_field(&class, "testInt", "I")
+        .expect("Failed to get static field testInt")
+        .i()
+        .expect("Failed to convert testInt into jint");
+    testInt + 114
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_helloFromTestStringField<'a>(
+    mut env: JNIEnv<'a>,
+    class: JClass<'a>
+) -> jstring {
+    let testStringObj = env.get_static_field(&class, "testString", "Ljava/lang/String;")
+        .expect("Failed to get static field testString")
+        .l()
+        .expect("Failed to convert testString into JObject");
+    let testString: String = env.get_string(&JString::from(testStringObj))
+        .expect("Failed to get the value of testString")
+        .into();
+    let output = env.new_string(create_rust_string(&testString)).expect("Failed to create Rust string.");
+    output.into_raw()
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_modifyTestStringFromRust<'a>(
+    mut env: JNIEnv<'a>,
+    class: JClass<'a>,
+    input: JString<'a>
+) {
+    let inputStr: String = env.get_string(&input).expect("Failed to receive the argument: input").into();
+    let testStringFromRust = env.new_string(create_rust_string(&inputStr)).expect("Failed to create Rust string.");
+    let testStringFromRustObj = JObject::from(testStringFromRust);
+    let testStringFromRustId = env.get_static_field_id(&class, "testStringFromRust", "Ljava/lang/String;")
+        .expect("Failed to get the ID of static field testStringFromRust");
+    env.set_static_field(&class, &testStringFromRustId, JValue::from(&testStringFromRustObj))
+        .expect("Failed to set static field testStringFromRust");
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_actCallFromRust<'a>(
+    mut env: JNIEnv<'a>,
+    class: JClass<'a>,
+    input: JString<'a>
+) -> jstring {
+    let inputStr: String = env.get_string(&input).expect("Failed to receive the argument: input").into();
+    let testStringFromRust = env.new_string(create_rust_string(&inputStr)).expect("Failed to create Rust string.");
+    let testStringFromRustObj = JObject::from(testStringFromRust);
+    let callFromRustResult = env.call_static_method(&class, "callFromRust", "(Ljava/lang/String;)Ljava/lang/String;", &[JValue::from(&testStringFromRustObj)])
+        .expect("Failed to invoke static method callFromRust");
+    let callFromRustResultObj = callFromRustResult.l().expect("Failed to convert the method result into JObject.");
+    JString::from(callFromRustResultObj).into_raw()
+}
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "system" fn Java_top_srcres_apps_rustjnidemo_App_delayInRust<'a>(
+    _: JNIEnv<'a>,
+    _: JClass<'a>,
+    input: jlong
+) {
+    let inputU = u64::try_from(input).expect("Attempting to call delayInRust with negative millisecond duration.");
+    thread::sleep(Duration::from_millis(inputU));
+}
+```
+
+先构建 Rust 动态链接库 `cargo build --release` ，再构建并运行 Java 程序 `./gradlew run` 。将会得到如下输出：
+
+```
+../../rust/target/release/
+Rust-created string, string from Java
+2034324
+628
+Rust-created string, String static field from Java
+Rust-created string, string from Java #2
+Method callFromRust was invoked!
+actCallFromRust result: Java-side received: Rust-created string, string from Java #3
+Delay in Rust for 2 seconds...
+Delay done.
+```
+
+# 完整项目
+
+完整的项目源码已上传至 [GitHub 仓库](https://github.com/srcres258/rust-jni-demo/) ，使用 MIT 协议开源。由于时间仓促没能就代码细节具体解释实现原理，读者可自行前往阅读研究。
