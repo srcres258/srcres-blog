@@ -176,7 +176,7 @@ favicon: /assets/favicon-avatar.ico
 copyright:
   enable: true
   # https://creativecommons.org/
-  license: 'This blog is licensed under <a rel="license" href="https://spdx.org/licenses/CC-BY-NC-SA-4.0.html">Creative Commons Attribution Non Commercial Share Alike 4.0 International</a>.'
+  license: 'This blog is licensed under <a rel="license" href="https://spdx.org/licenses/CC-BY-4.0.html">Creative Commons Attribution 4.0 International</a>.'
 # Website Approve
 website_approve:
   enable: false
