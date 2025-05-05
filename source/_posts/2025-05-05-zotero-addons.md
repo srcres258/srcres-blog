@@ -1,7 +1,7 @@
 ---
 title: Zotero 补充：插件相关安装说明
 date: 2025-05-05 20:47:32
-tags:
+tags: [Zotero]
 ---
 
 # Zotero 补充：插件相关安装说明
