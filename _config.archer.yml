@@ -2,7 +2,7 @@
 # avatar
 avatar: /assets/avatar.jpg
 # author name
-author: src_resources
+author: srcres258
 # signature
 signature: 是非进退难断，不断亦难；愿生有去处，苍有归途。
 # SNS (you can custom the order)
@@ -62,14 +62,14 @@ profile_links:
 
 # ========== Site ========== #
 # title of the site (good for SEO)
-SEO_title: src_resources's Blog
+SEO_title: srcres258's Blog
 # keywords for site (good for SEO)
 SEO_keywords:
   - hexo
   - 'hexo-theme'
   - 'hexo-blog'
 # main title shown in header image
-main_title: src_resources's Blog
+main_title: srcres258's Blog
 # subtitle
 subtitle: 关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。
 # site haeder image

@@ -1,4 +1,4 @@
-src_resources' Blog
+srcres258's Blog
 ===================
 
 本仓库托管我自己博客的相关文件，基于 Hexo 博客框架构建。

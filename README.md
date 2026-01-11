@@ -1,4 +1,4 @@
-src_resources' Blog
+srcres258's Blog
 ===================
 
 This repository hosts my own blog source files, built with the Hexo blogging framework.
